@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Dimensions, StyleSheet, Image } from 'react-native'
+import { View, Dimensions, StyleSheet, Image,Text,TouchableOpacity, SafeAreaView } from 'react-native'
 import PropTypes from 'prop-types'
 import ChatBubble from './components/ChatBubble'
 import Chat from './components/Chat'
@@ -336,7 +336,7 @@ export default class LiveChat extends Component {
 	}
 
 	closeChat = () => {
-		this.setState({ isChatOn: false })
+		// this.setState({ isChatOn: false })
 	}
 
 	getHeaderText = () => {
@@ -359,20 +359,20 @@ export default class LiveChat extends Component {
 	render() {
 		const { isChatOn } = this.state
 
-		return [
-			<ChatBubble
-				key="bubble"
-				openChat={this.openChat}
-				bubble={this.state.bubble}
-				disabled={this.props.movable}
-				styles={this.props.bubbleStyles}
-			/>,
-			this.customerSDK && (
+		return (
+			<SafeAreaView style = {{flex:1}}>
+		   {/* {
+			!isChatOn && <TouchableOpacity onPress={this.openChat}>
+			<Text>Chat with us</Text>
+		</TouchableOpacity>
+		   } */}
+			
+			
 				<Chat
 					key="chat"
 					{...this.props}
-					isChatOn={isChatOn}
-					closeChat={this.closeChat}
+					isChatOn={true}
+					closeChat={this.props.closeChat}
 					handleSendMessage={this.handleSendMessage}
 					messages={this.state.messages}
 					users={this.state.users}
@@ -385,9 +385,11 @@ export default class LiveChat extends Component {
 					disableComposer={this.shouldDisableComposer()}
 					headerText={this.getHeaderText()}
 				/>
-			),
-			<AuthWebView key="auth" />,
-		]
+			
+			<AuthWebView key="auth" />
+			</SafeAreaView>
+		)
+		
 	}
 }
 
