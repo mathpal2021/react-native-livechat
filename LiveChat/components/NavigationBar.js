@@ -13,13 +13,7 @@ export default class NavigationBar extends Component {
 			<View style={styles.navBar}>
 				<Text style={styles.title}>{this.props.chatTitle}</Text>
 				<TouchableOpacity style={styles.back} onPress={this.props.closeChat}>
-					<Image
-						key={Math.random()}
-						source={backImage}
-						style={styles.backIcon}
-						resizeMode="stretch"
-						tintColor="black"
-					/>
+					<Image key={Math.random()} source={backImage} style={styles.backIcon} resizeMode="stretch" tintColor = 'black' />
 					{/* <Text style={styles.backText}>Back</Text> */}
 				</TouchableOpacity>
 			</View>
@@ -41,8 +35,9 @@ const styles = StyleSheet.create({
 		marginLeft: width / 40,
 	},
 	backIcon: {
-		height: height / 30,
-		width: height / 60,
+		height: height / 40,
+		width: height / 70,
+		tintColor:'black'
 	},
 	backText: {
 		color: '#007fff',
