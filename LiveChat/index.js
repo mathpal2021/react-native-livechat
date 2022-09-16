@@ -35,6 +35,7 @@ export default class LiveChat extends Component {
 	}
 
 	componentDidMount() {
+		console.log('this.prosps.ischaton ',this.props.isChatOn )
 		this.initCustomerSdk({
 			licenseId: this.props.license,
 			clientId: this.props.clientId,
@@ -136,10 +137,9 @@ export default class LiveChat extends Component {
 				})
 		}
 		if (!this.state.chatActive) {
-			return this.customerSDK
-				.activateChat({
+			return this.customerSDK?.activateChat({
 					chat: {
-						id: this.state.chatId,
+						id: this?.state?.chatId,
 						thread: {
 							events: [newEvent],
 						},
@@ -360,7 +360,7 @@ export default class LiveChat extends Component {
 		const { isChatOn } = this.state
 
 		return (
-			<SafeAreaView style = {{flex:1}}>
+			<SafeAreaView style = {{flex:1, backgroundColor:'white'}}>
 		   {/* {
 			!isChatOn && <TouchableOpacity onPress={this.openChat}>
 			<Text>Chat with us</Text>
@@ -371,7 +371,7 @@ export default class LiveChat extends Component {
 				<Chat
 					key="chat"
 					{...this.props}
-					isChatOn={true}
+					isChatOn={this.props.isChatOn}
 					closeChat={this.props.closeChat}
 					handleSendMessage={this.handleSendMessage}
 					messages={this.state.messages}

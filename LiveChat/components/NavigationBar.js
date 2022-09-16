@@ -24,9 +24,9 @@ export default class NavigationBar extends Component {
 const styles = StyleSheet.create({
 	navBar: {
 		height: Platform.OS === 'ios' ? height / 11 : height / 12,
-		backgroundColor: '#eee',
+		backgroundColor: '#FFF',
 		borderBottomColor: '#b2b2b2',
-		borderBottomWidth: 1,
+		borderBottomWidth: 0.5,
 		flexDirection: 'row',
 		paddingTop: Platform.OS === 'ios' ? height / 25 : height / 40,
 	},
