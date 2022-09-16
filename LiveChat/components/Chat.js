@@ -45,6 +45,8 @@ export default class Chat extends React.Component {
 			...restProps
 		} = this.props
 		const isReconnecting = this.props.connectionState !== 'connected'
+		console.log('isReconnecting ',isReconnecting)
+		console.log('isChatOn ',isChatOn)
 		if (isChatOn) {
 			return (
 				<View
@@ -74,7 +76,13 @@ export default class Chat extends React.Component {
 				</View>
 			)
 		}
-		return null
+		return <View
+					style = {{flex:1}}>
+						<NavigationBar chatTitle={chatTitle} closeChat={closeChat} />
+			         <Text style={styles.connectionStatus}>No agents available.</Text>
+				</View>
+
+		
 	}
 }
 

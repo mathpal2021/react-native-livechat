@@ -136,22 +136,22 @@ export default class LiveChat extends Component {
 					})
 				})
 		}
-		if (!this.state.chatActive) {
-			return this.customerSDK?.activateChat({
-					chat: {
-						id: this?.state?.chatId,
-						thread: {
-							events: [newEvent],
-						},
-					},
-					continuous: true,
-				})
-				.then((chat) => {
-					this.setState({
-						chatActive: true,
-					})
-				})
-		}
+		// if (!this.state.chatActive) {
+		// 	return this.customerSDK?.activateChat({
+		// 			chat: {
+		// 				id: this?.state?.chatId,
+		// 				thread: {
+		// 					events: [newEvent],
+		// 				},
+		// 			},
+		// 			continuous: true,
+		// 		})
+		// 		.then((chat) => {
+		// 			this.setState({
+		// 				chatActive: true,
+		// 			})
+		// 		})
+		// }
 		return this.customerSDK.sendEvent({
 			chatId: this.state.chatId,
 			event: newEvent,
@@ -358,7 +358,8 @@ export default class LiveChat extends Component {
 
 	render() {
 		const { isChatOn } = this.state
-
+		console.log('this.state.connectionState ',this.state.connectionState)
+		console.log('this.state.chatActive ',this.state.chatActive)
 		return (
 			<SafeAreaView style = {{flex:1, backgroundColor:'white'}}>
 		   {/* {
