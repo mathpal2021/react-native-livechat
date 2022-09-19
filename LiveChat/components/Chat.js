@@ -78,7 +78,8 @@ export default class Chat extends React.Component {
 		}
 		return <View
 					style = {{flex:1}}>
-						
+						{/* <NavigationBar chatTitle={chatTitle} closeChat={closeChat} />
+			         <Text style={styles.connectionStatus}>No agents available.</Text> */}
 				</View>
 
 		
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
 	container: {
 		width,
 		height: '100%',
-		position: 'absolute',
+		// position: 'absolute',
 		top: 0,
 		left: 0,
 		flexDirection: 'column',
