@@ -78,8 +78,7 @@ export default class Chat extends React.Component {
 		}
 		return <View
 					style = {{flex:1}}>
-						<NavigationBar chatTitle={chatTitle} closeChat={closeChat} />
-			         <Text style={styles.connectionStatus}>No agents available.</Text>
+						
 				</View>
 
 		

@@ -360,6 +360,8 @@ export default class LiveChat extends Component {
 		const { isChatOn } = this.state
 		console.log('this.state.connectionState ',this.state.connectionState)
 		console.log('this.state.chatActive ',this.state.chatActive)
+		console.log('isChatOn ',isChatOn)
+		console.log('this.state ',this.state)
 		return (
 			<SafeAreaView style = {{flex:1, backgroundColor:'white'}}>
 		   {/* {
@@ -385,6 +387,7 @@ export default class LiveChat extends Component {
 					onInputChange={this.handleInputChange}
 					disableComposer={this.shouldDisableComposer()}
 					headerText={this.getHeaderText()}
+					
 				/>
 			
 			<AuthWebView key="auth" />
